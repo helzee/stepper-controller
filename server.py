@@ -30,7 +30,7 @@ def moveForward():
             st2.stepper.release()
             return json.dumps({'success':False, 'error':'steps must be an int'}), 400, {'ContentType':'application/json'}
         steps = int(steps)
-        st1.move(steps, STEPPER.FORWARD, STEPPER.DOUBLE)
+        st1.move(steps, STEPPER.BACKWARD, STEPPER.DOUBLE)
         st2.move(steps, STEPPER.FORWARD, STEPPER.DOUBLE)
     else:
         print("steps not in args in moveForward")
@@ -49,7 +49,7 @@ def moveBackward():
             st2.stepper.release()
             return json.dumps({'success':False, 'error':'steps must be an int'}), 400, {'ContentType':'application/json'}
         steps = int(steps)
-        st1.move(steps, STEPPER.BACKWARD, STEPPER.DOUBLE)
+        st1.move(steps, STEPPER.FORWARD, STEPPER.DOUBLE)
         st2.move(steps, STEPPER.BACKWARD, STEPPER.DOUBLE)
     else:
         print("steps not in args in moveBackward")
